@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ imatge }}" class="img-responsive">
+            </div>
+            <div class="col-md-8">
+                 <table class="table table-striped">
+                {%  for problema in problemes.all %}
+                    <tr><td>
+                        {{ forloop.counter }}:
+                        {%  if problema.enabled %}
+                            <a href="{{ problema.id }}">{{ problema.titol }}</a>
+                        {%  else %}
+                            {{ problema.titol }}
+                        {% endif %}
+                    </td></tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

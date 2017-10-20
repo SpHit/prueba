@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul id="competicions">
+{% if latest_competition_list %}
+    {% for competicio in latest_competition_list %}
+        <li><a href="/competicio/{{ competicio.id }}/">{{ competicio.text }}</a></li>
+    {% endfor %}
+{% else %}
+    <li>No hi ha competicions.</li>
+{% endif %}
+</ul>
+{% endblock %}
